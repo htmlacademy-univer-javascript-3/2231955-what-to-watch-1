@@ -7,7 +7,7 @@ export function getFilmsCards(films: Film[]){
       poster={filmCardProps.poster}
       name={filmCardProps.name}
       isFavorite={filmCardProps.isFavorite}
-    />));
+     />));
 }
 export function getFavoriteFilms(films: Film[]) {
   return films.filter((x) => x.isFavorite);
