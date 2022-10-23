@@ -1,6 +1,6 @@
-import {Film} from '../../types/Film';
+import {FilmCardInfo} from '../../types/film-card-info';
 
-function FilmCard(props: Film):JSX.Element {
+function FilmCard(props: FilmCardInfo):JSX.Element {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">

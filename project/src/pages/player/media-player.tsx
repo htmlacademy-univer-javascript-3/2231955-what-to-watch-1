@@ -1,6 +1,6 @@
 import {MediaFileStates, MediaPlayerState} from '../../types/media-player-state';
 
-function MediaPlayer(props: MediaPlayerState): JSX.Element {
+export function MediaPlayer(props: MediaPlayerState): JSX.Element {
   return (
     <div className="player">
       <video src="#" className="player__video" poster="/img/player-poster.jpg"></video>

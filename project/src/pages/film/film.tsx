@@ -1,17 +1,9 @@
 import {getFilmsByGenre, getFilmsCards} from '../../utils/film-servies';
 import {films} from '../../store/consts';
+import {PageFilm} from "../../types/film-page";
 
 
-type PageFilmProps = {
-  background: string;
-  name: string;
-  genre: string;
-  year: number;
-  poster: string;
-  isInList: boolean;
-}
-
-function Film(props: PageFilmProps): JSX.Element {
+export function Film(props: PageFilm): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
@@ -122,8 +114,7 @@ function Film(props: PageFilmProps): JSX.Element {
                 <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
 
                 <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                  and other
-                </strong>
+                  and other</strong>
                 </p>
               </div>
             </div>

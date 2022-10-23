@@ -1,6 +1,6 @@
 import {getFilmsCards} from '../../utils/film-servies';
 import {films} from '../../store/consts';
-function FavoriteFilmsList(): JSX.Element {
+export function FavoriteFilmsList(): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">

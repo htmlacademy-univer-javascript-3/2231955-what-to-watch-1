@@ -1,7 +1,8 @@
-import {Film} from '../types/Film';
+import {FilmCardInfo} from '../types/film-card-info';
 import {GenresListProps} from '../components/genres-list/genres-list';
+import {PageFilm} from "../types/film-page";
 
-const films: Film[] = [
+const films: FilmCardInfo[] = [
   {poster: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     isFavorite: true},
@@ -70,5 +71,11 @@ const genres: GenresListProps =
     currentActive: 'All genres'
   };
 
-
-export {films, genres};
+const promoFilm: PageFilm = {
+  name: "The Grand Budapest Hotel",
+  genre: "Drama",
+  year: 2014,
+  poster: "img/the-grand-budapest-hotel-poster.jpg",
+  background: "img/bg-the-grand-budapest-hotel.jpg",
+}
+export {films, genres, promoFilm};
