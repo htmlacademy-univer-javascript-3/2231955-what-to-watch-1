@@ -1,7 +1,7 @@
 import FilmCard from '../components/film-card/film-card';
-import {Film} from '../types/Film';
+import {FilmCardInfo} from '../types/film-card-info';
 
-export function getFilmsCards(films: Film[]){
+export function getFilmsCards(films: FilmCardInfo[]){
   return films.map((filmCardProps) =>
     (<FilmCard
       poster={filmCardProps.poster}
@@ -9,11 +9,11 @@ export function getFilmsCards(films: Film[]){
       isFavorite={filmCardProps.isFavorite}
     />));
 }
-export function getFavoriteFilms(films: Film[]) {
+export function getFavoriteFilms(films: FilmCardInfo[]) {
   return films.filter((x) => x.isFavorite);
 }
 
-export function getFilmsByGenre(films: Film[], genre: string) {
+export function getFilmsByGenre(films: FilmCardInfo[], genre: string) {
   // stub
   return films.slice(0, 4);
 }

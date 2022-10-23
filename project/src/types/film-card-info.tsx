@@ -1,4 +1,4 @@
-export type Film = {
+export type FilmCardInfo = {
   poster: string;
   name: string;
   isFavorite: boolean;

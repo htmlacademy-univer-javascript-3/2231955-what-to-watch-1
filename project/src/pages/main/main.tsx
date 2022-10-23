@@ -1,22 +1,16 @@
 import GenresList from '../../components/genres-list/genres-list';
 import {getFilmsCards} from '../../utils/film-servies';
 import {films, genres} from '../../store/consts';
-export type MainPageProps = {
-  promoFilmName: string;
-  promoFilmGenre: string;
-  promoFilmYear: number;
-  promoFilmPosterImgSrc: string;
-  promoFilmBackgroundImgSrc: string;
-}
+import {MainPage} from '../../types/main';
 
-function Main(props: MainPageProps): JSX.Element {
+function Main(props: MainPage): JSX.Element {
 
 
   return(
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={props.promoFilmBackgroundImgSrc} alt="The Grand Budapest Hotel"/>
+          <img src={props.promoFilmInfo.background} alt="The Grand Budapest Hotel"/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -45,16 +39,16 @@ function Main(props: MainPageProps): JSX.Element {
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={props.promoFilmPosterImgSrc} alt="The Grand Budapest Hotel poster" width="218"
+              <img src={props.promoFilmInfo.poster} alt="The Grand Budapest Hotel poster" width="218"
                 height="327"
               />
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{props.promoFilmName}</h2>
+              <h2 className="film-card__title">{props.promoFilmInfo.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{props.promoFilmGenre}</span>
-                <span className="film-card__year">{props.promoFilmYear}</span>
+                <span className="film-card__genre">{props.promoFilmInfo.genre}</span>
+                <span className="film-card__year">{props.promoFilmInfo.year}</span>
               </p>
 
               <div className="film-card__buttons">
