@@ -1,9 +1,19 @@
-export function AddReview(): JSX.Element {
-  return (
+import {FilmInfo} from "../../types/film-page";
+import {MediaFileStates} from "../../types/media-player-state";
+import {Link, Navigate, useParams} from "react-router-dom";
+import {Urls} from "../../store/urls";
+
+export type AddReviewProps = {
+  films: FilmInfo[]
+}
+export function AddReview(props: AddReviewProps): JSX.Element {
+  const filmToShow = props.films.find((film) => film.id == useParams().id)
+
+  return (filmToShow ?
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="/img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={filmToShow.background.imageSrc} alt={filmToShow.background.imageAlt}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -20,7 +30,7 @@ export function AddReview(): JSX.Element {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="/markup/movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <Link to={`/films/${filmToShow.id}`} className="breadcrumbs__link">{filmToShow.name}</Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -41,7 +51,7 @@ export function AddReview(): JSX.Element {
         </header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src="/img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+          <img src={filmToShow.poster.imageSrc} alt={filmToShow.poster.imageAlt} width="218"
             height="327"
           />
         </div>
@@ -95,6 +105,6 @@ export function AddReview(): JSX.Element {
           </div>
         </form>
       </div>
-    </section>
-  );
+    </section> : <Navigate to={Urls.NotFound}/>
+  ) ;
 }

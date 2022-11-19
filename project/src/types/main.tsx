@@ -1,5 +1,6 @@
-import {PageFilm} from "./film-page";
+import {FilmInfo} from "./film-page";
 
 export type MainPage = {
-  promoFilmInfo: PageFilm
+  promoFilm: FilmInfo
+  films:FilmInfo[]
 }
