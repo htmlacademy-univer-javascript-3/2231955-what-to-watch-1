@@ -1,13 +1,16 @@
-import {FilmCardInfo} from '../../types/film-card-info';
-
-function FilmCard(props: FilmCardInfo):JSX.Element {
+import {FilmInfo} from "../../types/film-page";
+import {Link} from "react-router-dom";
+export type SmallFilmCardProps = {
+  film: FilmInfo;
+}
+function FilmCard(props: SmallFilmCardProps):JSX.Element {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
-        <img src={props.poster} alt={props.name} width="280" height="175"/>
+        <img src={props.film.poster.imageSrc} alt={props.film.name} width="280" height="175"/>
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="/mafilm-page.html">{props.name}</a>
+        <Link className="small-film-card__link" to={`/films/${props.film.id}`}>{props.film.name}</Link>
       </h3>
     </article>
   );

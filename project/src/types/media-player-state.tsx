@@ -1,9 +1,12 @@
+import {FilmInfo} from "./film-page";
+
 export enum MediaFileStates{
   Paused = 'Paused',
   Playing = 'Playing',
 }
 
-export type MediaPlayerState = {
+export type MediaPlayerProps = {
   state: MediaFileStates;
+  films: FilmInfo[]
   time: string;
 }

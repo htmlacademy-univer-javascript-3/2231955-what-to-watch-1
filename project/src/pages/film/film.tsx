@@ -1,26 +1,28 @@
-import {getFilmsByGenre, getFilmsCards} from '../../utils/film-servies';
-import {films} from '../../store/consts';
-import {PageFilm} from "../../types/film-page";
+import {getFilmsByGenre} from '../../utils/film-servies';
+import {films} from '../../mocks/films';
+import {FilmInfo} from "../../types/film-page";
+import FilmsList from "../../components/films-list/films-list";
+import {Link} from "react-router-dom";
 
 
-export function Film(props: PageFilm): JSX.Element {
+export function Film(props: FilmInfo): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={props.background} alt="The Grand Budapest Hotel"/>
+            <img src={props.background.imageSrc} alt="The Grand Budapest Hotel"/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
             <div className="logo">
-              <a href="/markup/main.html" className="logo__link">
+              <Link to={`/main`} className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <ul className="user-block">
@@ -63,7 +65,7 @@ export function Film(props: PageFilm): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="/markup/add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${props.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -72,7 +74,7 @@ export function Film(props: PageFilm): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={props.poster} alt={props.name} width="218"
+              <img src={props.poster.imageSrc} alt={props.name} width="218"
                 height="327"
               />
             </div>
@@ -129,18 +131,18 @@ export function Film(props: PageFilm): JSX.Element {
 
           <div className="catalog__films-list">
             {
-              getFilmsCards(getFilmsByGenre(films, props.genre))
+              <FilmsList films={getFilmsByGenre(films, props.genre)}/>
             }
           </div>
         </section>
 
         <footer className="page-footer">
           <div className="logo">
-            <a href="/markup/main.html" className="logo__link logo__link--light">
+            <Link to={`/main`} className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <div className="copyright">

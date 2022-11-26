@@ -1,69 +1,5 @@
-import {FilmCardInfo} from '../types/film-card-info';
 import {GenresListProps} from '../components/genres-list/genres-list';
-import {PageFilm} from "../types/film-page";
-
-const films: FilmCardInfo[] = [
-  {poster: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
-    name: 'Fantastic Beasts: The Crimes of Grindelwald',
-    isFavorite: true},
-  {poster: 'img/bohemian-rhapsody.jpg',
-    name: 'Bohemian Rhapsody',
-    isFavorite: true},
-  {poster:'img/macbeth.jpg',
-    name:'Macbeth',
-    isFavorite: true},
-  {poster:'img/aviator.jpg',
-    name:'Aviator',
-    isFavorite: true},
-  {poster:'img/we-need-to-talk-about-kevin.jpg',
-    name:'We need to talk about Kevin',
-    isFavorite: true},
-  {poster:'img/what-we-do-in-the-shadows.jpg',
-    name:'What We Do in the Shadows',
-    isFavorite: false},
-  {poster:'img/revenant.jpg',
-    name:'Revenant',
-    isFavorite: false},
-  {poster:'img/johnny-english.jpg',
-    name:'Johnny English,',
-    isFavorite: false},
-  {poster:'img/shutter-island.jpg',
-    name:'Shutter Island',
-    isFavorite: false},
-  {poster:'img/pulp-fiction.jpg',
-    name:'Pulp Fiction',
-    isFavorite: false},
-  {poster:'img/no-country-for-old-men.jpg',
-    name:'No Country for Old Men',
-    isFavorite: false},
-  {poster:'img/snatch.jpg',
-    name:'Snatch',
-    isFavorite: false},
-  {poster:'img/moonrise-kingdom.jpg',
-    name:'Moonrise Kingdom',
-    isFavorite: false},
-  {poster:'img/seven-years-in-tibet.jpg',
-    name:'Seven Years in Tibet',
-    isFavorite: false},
-  {poster:'img/midnight-special.jpg',
-    name:'Midnight Special',
-    isFavorite: false},
-  {poster:'img/war-of-the-worlds.jpg',
-    name:'War of the Worlds',
-    isFavorite: false},
-  {poster:'img/dardjeeling-limited.jpg',
-    name:'Dardjeeling Limited',
-    isFavorite: false},
-  {poster:'img/orlando.jpg',
-    name:'Orlando',
-    isFavorite: false},
-  {poster:'img/mindhunter.jpg',
-    name:'Mindhunter',
-    isFavorite: false},
-  {poster:'img/midnight-special.jpg',
-    name:'Midnight Special',
-    isFavorite: false},
-];
+import {FilmInfo} from "../types/film-page";
 
 const genres: GenresListProps =
   {
@@ -71,11 +7,4 @@ const genres: GenresListProps =
     currentActive: 'All genres'
   };
 
-const promoFilm: PageFilm = {
-  name: "The Grand Budapest Hotel",
-  genre: "Drama",
-  year: 2014,
-  poster: "img/the-grand-budapest-hotel-poster.jpg",
-  background: "img/bg-the-grand-budapest-hotel.jpg",
-}
-export {films, genres, promoFilm};
+export {genres};

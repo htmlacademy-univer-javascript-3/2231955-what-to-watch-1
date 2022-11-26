@@ -17,7 +17,8 @@ function App(props: MainPage): JSX.Element {
       <Routes>
         <Route path='' element=
           {
-            <Main promoFilmInfo={props.promoFilmInfo}
+            <Main promoFilm={props.promoFilm}
+                  films={props.films}
             />
           }
         />
@@ -25,23 +26,29 @@ function App(props: MainPage): JSX.Element {
         <Route path={Urls.MyList} element=
           {
             <PrivateRoute isAuthorised={false}>
-              <FavoriteFilmsList/>
+              <FavoriteFilmsList films={props.films}/>
             </PrivateRoute>
           }
         />
         <Route path={Urls.Film} element=
           {
-            <Film background={props.promoFilmInfo.background}
-              name={props.promoFilmInfo.name}
-              genre={props.promoFilmInfo.genre}
-              poster={props.promoFilmInfo.poster}
-              year={props.promoFilmInfo.year}
-              isInList={false}
+            <Film id={props.promoFilm.id}
+                  description={props.promoFilm.description}
+                  rating={props.promoFilm.rating}
+                  video={props.promoFilm.video}
+                  director={props.promoFilm.director}
+                  starring={props.promoFilm.starring}
+                  background={props.promoFilm.background}
+                  name={props.promoFilm.name}
+                  genre={props.promoFilm.genre}
+                  poster={props.promoFilm.poster}
+                  year={props.promoFilm.year}
+                  isInList={false}
             />
           }
         />
-        <Route path={Urls.AddReview} element={<AddReview/>}/>
-        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused}/>}/>
+        <Route path={Urls.AddReview} element={<AddReview films={props.films}/>}/>
+        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused} films={props.films}/>}/>
         <Route path={Urls.NotFound} element={<Page404/>}/>
       </Routes>
     </BrowserRouter>

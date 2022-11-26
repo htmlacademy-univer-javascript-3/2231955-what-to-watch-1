@@ -1,6 +1,9 @@
-import {getFilmsCards} from '../../utils/film-servies';
-import {films} from '../../store/consts';
-export function FavoriteFilmsList(): JSX.Element {
+import FilmsList from "../../components/films-list/films-list";
+import {FilmInfo} from "../../types/film-page";
+export type FavoriteFilmsListProps = {
+  films: FilmInfo[];
+}
+export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -30,7 +33,7 @@ export function FavoriteFilmsList(): JSX.Element {
 
         <div className="catalog__films-list">
           {
-            getFilmsCards(films)
+            <FilmsList films={props.films}/>
           }
         </div>
       </section>
