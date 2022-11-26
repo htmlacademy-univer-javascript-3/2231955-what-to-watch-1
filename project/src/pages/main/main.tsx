@@ -3,6 +3,7 @@ import FilmsList from '../../components/films-list/films-list';
 
 import {genres} from '../../store/consts';
 import {MainPage} from '../../types/main';
+import {Link} from "react-router-dom";
 
 function Main(props: MainPage): JSX.Element {
 
@@ -53,12 +54,12 @@ function Main(props: MainPage): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
+                <Link to={`/player/${props.promoFilm.id}`} className="btn btn--play film-card__button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>

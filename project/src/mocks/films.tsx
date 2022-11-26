@@ -21,7 +21,7 @@ export const films : FilmInfo[] = [
       ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
       'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
     video: {
-      videoSrc:'https://www.youtube.com/embed/1Fg5iWmQjwk',
+      videoSrc:"https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4#t=0",
       start: '0'
     },
     rating: {

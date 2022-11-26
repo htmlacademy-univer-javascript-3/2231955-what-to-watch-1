@@ -8,7 +8,7 @@ export function MediaPlayer(props: MediaPlayerProps): JSX.Element {
 
   return filmToShow ? (
     <div className="player">
-      <video src={filmToShow.video.videoSrc} className="player__video" poster={filmToShow.poster.imageSrc}></video>
+      <video src={`${filmToShow.video.videoSrc}#t=0`} className="player__video" autoPlay={true} poster={filmToShow.poster.imageSrc}/>
 
       <Link to={`/films/${filmToShow.id}`} type="button" className="player__exit">Exit</Link>
 
@@ -24,7 +24,10 @@ export function MediaPlayer(props: MediaPlayerProps): JSX.Element {
         <div className="player__controls-row">
 
           <button type="button" className="player__play">
-            {
+            {props.state == MediaFileStates.Paused ?
+              <svg viewBox="0 0 19 19" width="19" height="19">
+                <use xlinkHref="#play-s"></use>
+              </svg> :
               <svg viewBox="0 0 14 21" width="14" height="21">
                 <use xlinkHref="#pause"></use>
               </svg> }
@@ -40,6 +43,5 @@ export function MediaPlayer(props: MediaPlayerProps): JSX.Element {
           </button>
         </div>
       </div>
-    </div>
-  ) :  <Navigate to={Urls.NotFound}/>;
+    </div>) :  <Navigate to={Urls.NotFound}/>;
 }

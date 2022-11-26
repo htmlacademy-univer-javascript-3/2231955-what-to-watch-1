@@ -48,7 +48,7 @@ function App(props: MainPage): JSX.Element {
           }
         />
         <Route path={Urls.AddReview} element={<AddReview films={props.films}/>}/>
-        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Playing} films={props.films}/>}/>
+        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused} films={props.films}/>}/>
         <Route path={Urls.NotFound} element={<Page404/>}/>
       </Routes>
     </BrowserRouter>
