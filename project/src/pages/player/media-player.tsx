@@ -1,14 +1,17 @@
 import {MediaFileStates, MediaPlayerProps} from '../../types/media-player-state';
 import {Link, Navigate, useParams} from "react-router-dom";
 import {Urls} from "../../store/urls";
+import {useState} from "react";
 
 export function MediaPlayer(props: MediaPlayerProps): JSX.Element {
   const filmToShow = props.films.find((film) => film.id == useParams().id)
-  filmToShow ? console.log(filmToShow.video.videoSrc) : console.log("asd")
+  const [timer, setTimer] = useState<NodeJS.Timeout | undefined>(undefined);
+
+
 
   return filmToShow ? (
     <div className="player">
-      <video src={`${filmToShow.video.videoSrc}#t=0`} className="player__video" autoPlay={true} poster={filmToShow.poster.imageSrc}/>
+      <video src={`${filmToShow.video.videoSrc}`} className="player__video" autoPlay poster={filmToShow.poster.imageSrc} />
 
       <Link to={`/films/${filmToShow.id}`} type="button" className="player__exit">Exit</Link>
 
