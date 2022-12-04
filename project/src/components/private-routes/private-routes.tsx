@@ -1,5 +1,5 @@
 import {Navigate} from 'react-router-dom';
-import {Urls} from '../../store/urls';
+import {Urls} from '../../utils/urls';
 
 type PrivateRouteProps = {
   isAuthorised: boolean;

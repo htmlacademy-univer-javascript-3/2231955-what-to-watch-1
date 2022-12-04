@@ -17,7 +17,6 @@ function FilmCard(props: SmallFilmCardProps):JSX.Element {
     clearTimeout(timer);
     setIsPlayerOn(false);
   }
-  console.log(isPlayerOn)
 
   return (
     <article className="small-film-card catalog__films-card" onPointerEnter={handleMouseOver} onPointerLeave={handleMouseOut}>

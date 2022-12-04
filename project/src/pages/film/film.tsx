@@ -1,17 +1,19 @@
-import {getFilmsByGenre} from '../../utils/film-servies';
+import {filterFilmsByGenre} from '../../utils/film-servies';
 import {films} from '../../mocks/films';
 import {FilmInfo} from "../../types/film-page";
 import FilmsList from "../../components/films-list/films-list";
 import {Link} from "react-router-dom";
 
-
-export function Film(props: FilmInfo): JSX.Element {
+export type FilmPageProps = {
+  film: FilmInfo
+}
+export function Film(props: FilmPageProps): JSX.Element {
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={props.background.imageSrc} alt="The Grand Budapest Hotel"/>
+            <img src={props.film.background.imageSrc} alt="The Grand Budapest Hotel"/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -39,10 +41,10 @@ export function Film(props: FilmInfo): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{props.name}</h2>
+              <h2 className="film-card__title">{props.film.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{props.genre}</span>
-                <span className="film-card__year">{props.year}</span>
+                <span className="film-card__genre">{props.film.genre}</span>
+                <span className="film-card__year">{props.film.year}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -54,7 +56,8 @@ export function Film(props: FilmInfo): JSX.Element {
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
                   {
-                    props.isInList ?
+                    props.film
+                      .isInList ?
                       <svg viewBox="0 0 19 20" width="19" height="20">
                         <use xlinkHref="#add"></use>
                       </svg> :
@@ -65,7 +68,7 @@ export function Film(props: FilmInfo): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to={`/films/${props.id}/review`} className="btn film-card__button">Add review</Link>
+                <Link to={`/films/${props.film.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -74,7 +77,7 @@ export function Film(props: FilmInfo): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={props.poster.imageSrc} alt={props.name} width="218"
+              <img src={props.film.poster.imageSrc} alt={props.film.name} width="218"
                 height="327"
               />
             </div>
@@ -131,7 +134,7 @@ export function Film(props: FilmInfo): JSX.Element {
 
           <div className="catalog__films-list">
             {
-              <FilmsList films={getFilmsByGenre(films, props.genre)}/>
+              <FilmsList films={filterFilmsByGenre(films, props.film.genre)}/>
             }
           </div>
         </section>
