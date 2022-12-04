@@ -1,3 +1,5 @@
+import {Genre} from "./genre";
+
 export type ImageInfo = {
   imageSrc: string
   imageAlt: string
@@ -15,7 +17,7 @@ export type FilmInfo = {
   id: string;
   background: ImageInfo;
   name: string;
-  genre: string;
+  genre: Genre;
   year: number;
   director: string;
   starring: string[];

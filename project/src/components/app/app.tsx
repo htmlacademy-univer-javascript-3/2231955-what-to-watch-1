@@ -7,7 +7,7 @@ import {AddReview} from '../../pages/add-review/add-review';
 import {MediaPlayer} from '../../pages/player/media-player';
 import Page404 from '../../pages/404/404';
 import PrivateRoute from '../private-routes/private-routes';
-import {Urls} from '../../store/urls';
+import {Urls} from '../../utils/urls';
 import {MainPage} from '../../types/main';
 import {MediaFileStates} from '../../types/media-player-state';
 
@@ -32,19 +32,8 @@ function App(props: MainPage): JSX.Element {
         />
         <Route path={Urls.Film} element=
           {
-            <Film id={props.promoFilm.id}
-                  description={props.promoFilm.description}
-                  rating={props.promoFilm.rating}
-                  video={props.promoFilm.video}
-                  director={props.promoFilm.director}
-                  starring={props.promoFilm.starring}
-                  background={props.promoFilm.background}
-                  name={props.promoFilm.name}
-                  genre={props.promoFilm.genre}
-                  poster={props.promoFilm.poster}
-                  year={props.promoFilm.year}
-                  isInList={false}
-            />
+            <Film
+             film={props.promoFilm}/>
           }
         />
         <Route path={Urls.AddReview} element={<AddReview films={props.films}/>}/>

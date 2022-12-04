@@ -1,13 +1,14 @@
 import GenresList from '../../components/genres-list/genres-list';
 import FilmsList from '../../components/films-list/films-list';
 
-import {genres} from '../../store/consts';
+import {genres} from '../../utils/consts';
 import {MainPage} from '../../types/main';
 import {Link} from "react-router-dom";
+import {useAppSelector} from "../../hooks";
 
 function Main(props: MainPage): JSX.Element {
 
-
+  const {genre, films} = useAppSelector((state) => state)
   return(
     <>
       <section className="film-card">
@@ -77,8 +78,8 @@ function Main(props: MainPage): JSX.Element {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          {<GenresList genres={genres.genres} currentActive={genres.currentActive}/>}
-          {<FilmsList films={props.films}/>}
+          {<GenresList genres={genres.genres} currentActive={genre}/>}
+          {<FilmsList films={films}/>}
 
 
           <div className="catalog__more">
