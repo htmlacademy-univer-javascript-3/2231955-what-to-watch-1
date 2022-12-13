@@ -11,7 +11,7 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel1',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
@@ -41,7 +41,7 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel2',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
@@ -71,7 +71,7 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel3',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
@@ -101,11 +101,11 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel4',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
-    genre : Genre.Comedy,
+    genre : Genre.Thriller,
     description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
       'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
@@ -131,11 +131,11 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel5',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
-    genre : Genre.Comedy,
+    genre : Genre.Thriller,
     description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
       'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
@@ -161,11 +161,11 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel6',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
-    genre : Genre.Comedy,
+    genre : Genre.SciFi,
     description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
       'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
@@ -191,11 +191,11 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/bg-the-grand-budapest-hotel.jpg',
       imageAlt: 'The Grand Budapest Hotel',
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel7',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
-    genre : Genre.Comedy,
+    genre : Genre.SciFi,
     description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
       'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
@@ -221,11 +221,11 @@ export const films : FilmInfo[] = [
       imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
       imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
     },
-    name: 'The Grand Budapest Hotel',
+    name: 'The Grand Budapest Hotel8',
     year: 2014,
     director : 'Wes Anderson',
     starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
-    genre : Genre.Comedy,
+    genre : Genre.Crime,
     description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
       'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
       'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +

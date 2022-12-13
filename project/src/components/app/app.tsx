@@ -33,7 +33,7 @@ function App(props: MainPage): JSX.Element {
         <Route path={Urls.Film} element=
           {
             <Film
-             film={props.promoFilm}/>
+             films={props.films}/>
           }
         />
         <Route path={Urls.AddReview} element={<AddReview films={props.films}/>}/>
