@@ -3,9 +3,9 @@ import {films} from '../../mocks/films';
 import {FilmInfo} from "../../types/film-page";
 import FilmsList from "../../components/films-list/films-list";
 import {Link, useParams} from "react-router-dom";
+import {Tabs} from "../../components/tabs/tabs";
 import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
-import {Tabs} from "../../components/tabs/tabs";
 
 export type FilmPageProps = {
   films: FilmInfo[]
@@ -78,7 +78,7 @@ export function Film(props: FilmPageProps): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList films={filterFilmsByGenre(props.films, film.genre).slice(0, 4)}/>
+          <FilmsList films={filterFilmsByGenre(props.films, film.genre)} count={4}/>
 
         </section>
 

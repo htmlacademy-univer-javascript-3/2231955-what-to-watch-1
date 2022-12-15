@@ -4,11 +4,21 @@ import FilmsList from '../../components/films-list/films-list';
 import {genres} from '../../utils/consts';
 import {MainPage} from '../../types/main';
 import {Link} from "react-router-dom";
-import {useAppSelector} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {ShowMore} from "../../components/show-more/show-more";
+import {useEffect, useState} from "react";
+import {FilmInfo} from "../../types/film-page";
+import {resetCountFilms} from "../../store/action";
 
 function Main(props: MainPage): JSX.Element {
 
-  const {genre, films} = useAppSelector((state) => state)
+  const {genre, films, count} = useAppSelector((state) => state)
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(resetCountFilms())
+  }, []);
+
   return(
     <>
       <section className="film-card">
@@ -79,12 +89,9 @@ function Main(props: MainPage): JSX.Element {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           {<GenresList genres={genres.genres} currentActive={genre}/>}
-          {<FilmsList films={films}/>}
+          {<FilmsList films={films} count={count}/>}
 
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {<ShowMore/>}
         </section>
 
         <footer className="page-footer">

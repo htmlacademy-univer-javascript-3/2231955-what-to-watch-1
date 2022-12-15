@@ -16,9 +16,9 @@ function GenresList(props: GenresListProps): JSX.Element{
       {
         props.genres.map((genre) =>
           (<li className={`catalog__genres-item ${genre === props.currentActive ? 'catalog__genres-item--active' : ''}`}>
-            <a href='#' onClick={() =>
+            <button onClick={() =>
             {dispatch(changeGenre(genre));
-              dispatch(getFilmsByGenre());}} className="catalog__genres-link">{genre}</a>
+              dispatch(getFilmsByGenre());}} className="catalog__genres-link">{genre}</button>
            </li>))
       }
     </ul>);
