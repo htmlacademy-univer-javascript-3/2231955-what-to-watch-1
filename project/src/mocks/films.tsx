@@ -242,4 +242,274 @@ export const films : FilmInfo[] = [
 
     isInList: true
   },
+  {id: '9',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel9',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '10',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel10',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '11',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel11',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '12',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel12',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '13',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel13',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '14',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel14',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '15',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel15',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '16',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel16',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
+  {id: '17',
+    poster:{
+      imageSrc: 'img/the-grand-budapest-hotel-poster.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald poster'
+    },
+    background:{
+      imageSrc: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+      imageAlt: 'Fantastic Beasts: The Crimes of Grindelwald'
+    },
+    name: 'The Grand Budapest Hotel17',
+    year: 2014,
+    director : 'Wes Anderson',
+    starring : ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    genre : Genre.Crime,
+    description : 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over ' +
+      'by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.' +
+      'Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual' +
+      ' needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, ' +
+      'Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+    video: {
+      videoSrc:'https://10.react.pages.academy/static/film/video/dog.mp4',
+      start: '0'
+    },
+    rating: {
+      rate: '8,9',
+      count: '1234'
+    },
+
+    isInList: true
+  },
   ]

@@ -5,16 +5,18 @@ import GenresList from "../genres-list/genres-list";
 
 export type FilmsListProps = {
   films: FilmInfo[];
+  count?: number
 }
 
 function FilmsList(props: FilmsListProps): JSX.Element {
+  const filmCards = props.films.map((film) => (
+    <FilmCard key={film.id} film={film}/>))
   return (
     <div className="catalog__films-list">
-    {
-      props.films.map((film) => (
-        <FilmCard key={film.id} film={film}/>))
-    }
-  </div>)
+      {
+        props.count ? filmCards.slice(0, props.count): filmCards
+      }
+    </div>)
 
 }
 
