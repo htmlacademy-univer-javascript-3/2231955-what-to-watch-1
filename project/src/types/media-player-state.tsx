@@ -7,6 +7,5 @@ export enum MediaFileStates{
 
 export type MediaPlayerProps = {
   state: MediaFileStates;
-  films: FilmInfo[]
   time: string;
 }

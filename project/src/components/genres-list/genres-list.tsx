@@ -1,24 +1,29 @@
-import {changeGenre, getFilmsByGenre} from "../../store/action";
+import {changeGenre, getFilmsByGenre, resetCountFilms} from "../../store/action";
 import {useAppDispatch} from "../../hooks";
-import {Genre} from "../../types/genre";
+import {Dispatch, SetStateAction, useState} from "react";
 
 export type GenresListProps = {
-  genres: Genre[];
-  currentActive: Genre;
+  genres: string[];
+  currentActive: string;
 }
 
 
 function GenresList(props: GenresListProps): JSX.Element{
   const dispatch = useAppDispatch();
 
+
   return (
     <ul className="catalog__genres-list">
       {
         props.genres.map((genre) =>
           (<li className={`catalog__genres-item ${genre === props.currentActive ? 'catalog__genres-item--active' : ''}`}>
-            <button onClick={() =>
-            {dispatch(changeGenre(genre));
-              dispatch(getFilmsByGenre());}} className="catalog__genres-link">{genre}</button>
+            <button onClick={
+              (evt) =>
+              {
+                evt.preventDefault();
+                dispatch(changeGenre(genre));
+              }
+            } className="catalog__genres-link">{genre}</button>
            </li>))
       }
     </ul>);

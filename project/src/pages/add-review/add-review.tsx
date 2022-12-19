@@ -2,18 +2,20 @@ import {FilmInfo} from "../../types/film-page";
 import {Link, Navigate, useParams} from "react-router-dom";
 import {Urls} from "../../utils/urls";
 import {AddReviewForm} from "../../components/add-review-form/add-review-form";
+import {useAppSelector} from "../../hooks";
 
 export type AddReviewProps = {
-  films: FilmInfo[]
 }
 export function AddReview(props: AddReviewProps): JSX.Element {
-  const filmToShow = props.films.find((film) => film.id == useParams().id)
+  const {films} = useAppSelector((state) => state);
+  const id = Number(useParams().id)
+  const filmToShow = films.find((film) => film.id ==id)
 
   return (filmToShow ?
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src={filmToShow.background.imageSrc} alt={filmToShow.background.imageAlt}/>
+          <img src={filmToShow.backgroundImage} alt="back"/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -51,7 +53,7 @@ export function AddReview(props: AddReviewProps): JSX.Element {
         </header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src={filmToShow.poster.imageSrc} alt={filmToShow.poster.imageAlt} width="218"
+          <img src={filmToShow.posterImage} alt="asd" width="218"
             height="327"
           />
         </div>
