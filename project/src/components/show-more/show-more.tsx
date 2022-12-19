@@ -1,16 +1,29 @@
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {setCountFilms} from "../../store/action";
-import {useEffect} from "react";
+import { SetStateAction, Dispatch } from 'react';
 
-export function ShowMore(): JSX.Element {
+import {useEffect} from "react";
+import {showMoreFilms} from "../../store/action";
+
+type ShowMoreProps = {
+  isAllLoaded: boolean;
+}
+export function ShowMore({isAllLoaded}: ShowMoreProps): JSX.Element {
   const dispatch = useAppDispatch();
-  const {count, totalCount} = useAppSelector((state) => state)
-  console.log(count, totalCount)
-  return count <= totalCount ?
-    (
+
+  return (
+
     <div className="catalog__more">
-      <button className="catalog__button" type="button" onClick={() => dispatch(setCountFilms())}>Show more</button>
+      {isAllLoaded &&
+        <button className="catalog__button"
+                type="button"
+                onClick={ (evt) => {
+                  evt.preventDefault();
+                  dispatch(showMoreFilms());
+                }}>
+          Show more
+        </button>
+      }
     </div>
-    ):
-    <></>
+    )
+
 }

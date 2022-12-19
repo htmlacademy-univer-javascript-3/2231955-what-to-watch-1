@@ -1,9 +1,11 @@
 import FilmsList from "../../components/films-list/films-list";
 import {FilmInfo} from "../../types/film-page";
+import {useAppSelector} from "../../hooks";
 export type FavoriteFilmsListProps = {
-  films: FilmInfo[];
 }
 export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
+  const {films} = useAppSelector((state) => state);
+
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -33,7 +35,7 @@ export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
 
         <div className="catalog__films-list">
           {
-            <FilmsList films={props.films}/>
+            <FilmsList films={films}/>
           }
         </div>
       </section>

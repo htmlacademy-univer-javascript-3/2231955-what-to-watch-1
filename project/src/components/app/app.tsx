@@ -10,38 +10,39 @@ import PrivateRoute from '../private-routes/private-routes';
 import {Urls} from '../../utils/urls';
 import {MainPage} from '../../types/main';
 import {MediaFileStates} from '../../types/media-player-state';
+import {useAppSelector} from "../../hooks";
+import {Spinner} from "../spinner/spinner";
 
 function App(props: MainPage): JSX.Element {
-  return (
+  const isFilmsLoaded = useAppSelector((state) => state.isFilmsLoaded);
+
+  return isFilmsLoaded ? (
     <BrowserRouter>
       <Routes>
         <Route path='' element=
           {
-            <Main promoFilm={props.promoFilm}
-                  films={props.films}
-            />
+            <Main/>
           }
         />
         <Route path={Urls.Login} element={<SignIn/>}/>
         <Route path={Urls.MyList} element=
           {
             <PrivateRoute isAuthorised={false}>
-              <FavoriteFilmsList films={props.films}/>
+              <FavoriteFilmsList/>
             </PrivateRoute>
           }
         />
         <Route path={Urls.Film} element=
           {
-            <Film
-             films={props.films}/>
+            <Film/>
           }
         />
-        <Route path={Urls.AddReview} element={<AddReview films={props.films}/>}/>
-        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused} films={props.films}/>}/>
+        <Route path={Urls.AddReview} element={<AddReview />}/>
+        <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused}/>}/>
         <Route path={Urls.NotFound} element={<Page404/>}/>
       </Routes>
     </BrowserRouter>
-  );
+  ): <Spinner/>;
 }
 
 export default App;

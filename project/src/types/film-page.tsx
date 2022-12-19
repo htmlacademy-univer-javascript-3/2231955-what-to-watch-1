@@ -14,19 +14,23 @@ export type VideoInfo = {
   start: string,
 }
 export type FilmInfo = {
-  id: string;
-  background: ImageInfo;
+  id: number;
   name: string;
-  genre: Genre;
-  year: number;
+  posterImage: string;
+  previewImage: string;
+  backgroundImage: string;
+  backgroundColor: string;
+  videoLink: string;
+  previewVideoLink: string;
+  description: string;
+  rating: number;
+  scoresCount: number;
   director: string;
   starring: string[];
-  poster: ImageInfo;
-  isInList?: boolean;
-  description: string;
-  rating: Rating
-  video: VideoInfo
-
+  runTime: number;
+  genre: string;
+  released: number;
+  isFavorite: boolean;
 }
 
 
