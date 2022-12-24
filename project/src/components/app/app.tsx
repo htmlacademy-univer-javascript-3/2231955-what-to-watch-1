@@ -7,7 +7,7 @@ import {AddReview} from '../../pages/add-review/add-review';
 import {MediaPlayer} from '../../pages/player/media-player';
 import Page404 from '../../pages/404/404';
 import PrivateRoute from '../private-routes/private-routes';
-import {Urls} from '../../utils/urls';
+import {Urls} from '../../types/urls';
 import {MainPage} from '../../types/main';
 import {MediaFileStates} from '../../types/media-player-state';
 import {useAppSelector} from "../../hooks";
@@ -19,7 +19,7 @@ function App(props: MainPage): JSX.Element {
   return isFilmsLoaded ? (
     <BrowserRouter>
       <Routes>
-        <Route path='' element=
+        <Route path={Urls.Home} element=
           {
             <Main/>
           }
@@ -27,7 +27,7 @@ function App(props: MainPage): JSX.Element {
         <Route path={Urls.Login} element={<SignIn/>}/>
         <Route path={Urls.MyList} element=
           {
-            <PrivateRoute isAuthorised={false}>
+            <PrivateRoute>
               <FavoriteFilmsList/>
             </PrivateRoute>
           }

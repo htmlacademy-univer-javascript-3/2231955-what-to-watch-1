@@ -1,6 +1,6 @@
 import {FilmInfo} from "../../types/film-page";
 import {Link, Navigate, useParams} from "react-router-dom";
-import {Urls} from "../../utils/urls";
+import {Urls} from "../../types/urls";
 import {AddReviewForm} from "../../components/add-review-form/add-review-form";
 import {useAppSelector} from "../../hooks";
 
