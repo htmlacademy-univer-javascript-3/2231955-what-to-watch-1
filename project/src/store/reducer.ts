@@ -6,10 +6,11 @@ import {
   getFilmsByGenre,
   loadFilms,
   loadPromoFilm,
-  resetCountFilms, setFilmsLoadingStatus,
-  setGenres, showMoreFilms
+  resetCountFilms, setAuthStatus, setFilmsLoadingStatus,
+  setGenres, setUser, showMoreFilms
 } from "./action";
-import {filterFilmsByGenre} from "../utils/film-servies";
+import {filterFilmsByGenre} from "../services/films";
+import {AuthStatus, UserInfo} from "../types/auth";
 
 export type InitState = {
   genre: string,
@@ -18,7 +19,9 @@ export type InitState = {
   films: FilmInfo[],
   currentFilms: FilmInfo[]
   count: number,
-  isFilmsLoaded: boolean
+  isFilmsLoaded: boolean,
+  authStatus: AuthStatus
+  user: UserInfo | null
 }
 
 const initialState: InitState = {
@@ -28,7 +31,10 @@ const initialState: InitState = {
   films: [],
   currentFilms: [],
   count: 0,
-  isFilmsLoaded: false}
+  isFilmsLoaded: false,
+  authStatus: AuthStatus.Unknown,
+  user: null
+}
 
 export const reducer = createReducer(initialState, (builder) => {
   builder
@@ -65,7 +71,14 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setFilmsLoadingStatus, (state, action) => {
       state.isFilmsLoaded = action.payload;
+    })
+    .addCase(setAuthStatus, (state, action) => {
+      state.authStatus = action.payload;
+    })
+    .addCase(setUser, (state, action) => {
+      state.user = action.payload;
     });
+
 
 
 });

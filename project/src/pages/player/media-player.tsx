@@ -1,6 +1,6 @@
 import {MediaFileStates, MediaPlayerProps} from '../../types/media-player-state';
 import {Link, Navigate, useParams} from "react-router-dom";
-import {Urls} from "../../utils/urls";
+import {Urls} from "../../types/urls";
 import {useAppSelector} from "../../hooks";
 
 export function MediaPlayer(props: MediaPlayerProps): JSX.Element {

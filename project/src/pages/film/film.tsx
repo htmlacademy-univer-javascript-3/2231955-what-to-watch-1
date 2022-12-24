@@ -1,4 +1,4 @@
-import {filterFilmsByGenre} from '../../utils/film-servies';
+import {filterFilmsByGenre} from '../../services/films';
 import {FilmInfo} from "../../types/film-page";
 import FilmsList from "../../components/films-list/films-list";
 import {Link, useParams} from "react-router-dom";

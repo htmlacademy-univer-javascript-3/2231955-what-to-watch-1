@@ -1,6 +1,13 @@
 import {Link} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {Urls} from "../../types/urls";
+import {setAuthStatus} from "../../store/action";
+import {AuthStatus} from "../../types/auth";
+import {logout} from "../../api/api-actions";
 
 export function Header(): JSX.Element {
+  const {authStatus, user} = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
   return(
   <header className="page-header film-card__head">
     <div className="logo">
@@ -14,11 +21,24 @@ export function Header(): JSX.Element {
     <ul className="user-block">
       <li className="user-block__item">
         <div className="user-block__avatar">
-          <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+          {authStatus == AuthStatus.Authorized && user?
+            <img src={user.avatarUrl} alt="User avatar" width="63" height="63"/> :
+            <></>
+          }
+
         </div>
       </li>
       <li className="user-block__item">
-        <a className="user-block__link">Sign out</a>
+        {authStatus == AuthStatus.Unauthorized ?
+          <Link to={Urls.Login} className="user-block__link">Sign in</Link> :
+          <button
+            className="user-block__link"
+            style={{background: 'transparent', border: 'none'}}
+            onClick={() =>
+            dispatch(logout())}>
+            Sign out
+          </button>
+        }
       </li>
     </ul>
   </header>)
