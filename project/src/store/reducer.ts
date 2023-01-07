@@ -3,14 +3,17 @@ import {FilmInfo} from "../types/film-page";
 import {createReducer} from "@reduxjs/toolkit";
 import {
   changeGenre,
-  getFilmsByGenre,
+  getFilmsByGenre, loadFilm,
   loadFilms,
-  loadPromoFilm,
+  loadPromoFilm, loadReviews, loadSimilarFilms,
   resetCountFilms, setAuthStatus, setFilmsLoadingStatus,
-  setGenres, setUser, showMoreFilms
+  setGenres, setPostReviewError, setUser, showMoreFilms
 } from "./action";
 import {filterFilmsByGenre} from "../services/films";
 import {AuthStatus, UserInfo} from "../types/auth";
+import {Simulate} from "react-dom/test-utils";
+import load = Simulate.load;
+import {Review} from "../types/review";
 
 export type InitState = {
   genre: string,
@@ -21,7 +24,11 @@ export type InitState = {
   count: number,
   isFilmsLoaded: boolean,
   authStatus: AuthStatus
-  user: UserInfo | null
+  user: UserInfo | null,
+  film: FilmInfo | null;
+  similarFilms: FilmInfo[];
+  reviews: Review[];
+  postReviewError: string | null;
 }
 
 const initialState: InitState = {
@@ -33,7 +40,11 @@ const initialState: InitState = {
   count: 0,
   isFilmsLoaded: false,
   authStatus: AuthStatus.Unknown,
-  user: null
+  user: null,
+  film: null,
+  similarFilms: [],
+  reviews: [],
+  postReviewError: null,
 }
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -77,6 +88,18 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setUser, (state, action) => {
       state.user = action.payload;
+    })
+    .addCase(loadFilm, (state, action) => {
+      state.film = action.payload;
+    })
+    .addCase(loadSimilarFilms, (state, action) => {
+      state.similarFilms = action.payload;
+    })
+    .addCase(loadReviews, (state, action) => {
+      state.reviews = action.payload;
+    })
+    .addCase(setPostReviewError, (state, action) => {
+      state.postReviewError = action.payload;
     });
 
 

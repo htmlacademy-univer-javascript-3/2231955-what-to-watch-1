@@ -12,12 +12,15 @@ import {MainPage} from '../../types/main';
 import {MediaFileStates} from '../../types/media-player-state';
 import {useAppSelector} from "../../hooks";
 import {Spinner} from "../spinner/spinner";
+import React from "react";
+import HistoryRouter from "../history-route/history-route";
+import browserHistory from "../../browser-history";
 
 function App(props: MainPage): JSX.Element {
   const isFilmsLoaded = useAppSelector((state) => state.isFilmsLoaded);
 
   return isFilmsLoaded ? (
-    <BrowserRouter>
+    <HistoryRouter history={browserHistory}>
       <Routes>
         <Route path={Urls.Home} element=
           {
@@ -41,7 +44,7 @@ function App(props: MainPage): JSX.Element {
         <Route path={Urls.MediaPlayer} element={<MediaPlayer time={'0.00.00'} state={MediaFileStates.Paused}/>}/>
         <Route path={Urls.NotFound} element={<Page404/>}/>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   ): <Spinner/>;
 }
 

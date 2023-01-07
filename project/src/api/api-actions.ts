@@ -1,9 +1,20 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {AppDispatch, State} from "../types/state";
 import {AxiosInstance} from "axios";
-import {loadFilms, loadPromoFilm, setAuthStatus, setFilmsLoadingStatus, setGenres, setUser} from "../store/action";
+import {
+  loadFilms,
+  loadPromoFilm, redirect,
+  setAuthStatus,
+  loadFilm,
+  setFilmsLoadingStatus,
+  setGenres, setPostReviewError, loadReviews, loadSimilarFilms,
+  setUser
+} from "../store/action";
 import {AuthCredentionals, AuthStatus, UserInfo} from "../types/auth";
 import {removeToken, setToken} from "../services/localstorage";
+import {Urls} from "../types/urls";
+import {FilmInfo} from "../types/film-page";
+import {Review} from "../types/review";
 
 export const fetchFilms = createAsyncThunk<void, undefined, {
   dispatch: AppDispatch;
@@ -81,4 +92,69 @@ export const logout = createAsyncThunk<void, undefined, {
     removeToken();
     dispatch(setAuthStatus(AuthStatus.Unauthorized));
   },
+);
+
+export const getFilm = createAsyncThunk<void, string | undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/getFilm',
+  async (filmId, {dispatch, extra: api}) => {
+    try {
+      if (filmId !== undefined) {
+        dispatch(loadFilm(null));
+        const {data} = await api.get(`/films/${filmId}`);
+        dispatch(loadFilm(data));
+      }
+    } catch {
+      dispatch(redirect(Urls.NotFound));
+    }
+  },
+);
+
+export const getSimilarFilms = createAsyncThunk<void, string | undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/getSimilarFilms',
+  async (filmId, {dispatch, extra: api}) => {
+    if (filmId !== undefined) {
+      const {data} = await api.get<FilmInfo[]>(`/films/${filmId}/similar`);
+      dispatch(loadSimilarFilms(data));
+    }
+  },
+);
+
+export const getReviews = createAsyncThunk<void, string | undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/getReviews',
+  async (filmId, {dispatch, extra: api}) => {
+    if (filmId !== undefined) {
+      const {data} = await api.get<Review[]>(`/comments/${filmId}`);
+      dispatch(loadReviews(data));
+    }
+  },
+);
+
+export const postReview = createAsyncThunk<void, {filmId: number; comment: string; rating: number}, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/postReview',
+  async ({filmId, comment, rating}, {dispatch, extra: api}) => {
+    try {
+      dispatch(setPostReviewError(null));
+      const {data} = await api.post(`/comments/${filmId}`, {comment, rating});
+      dispatch(loadReviews(data));
+      dispatch(redirect(`/films/${filmId}`));
+    } catch {
+      dispatch(setPostReviewError('Что-то пошло не так'));
+    }
+  }
 );
