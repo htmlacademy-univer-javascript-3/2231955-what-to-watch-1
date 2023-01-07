@@ -1,19 +1,28 @@
 import {useState} from "react";
+import {useAppDispatch} from "../../hooks";
+import {postReview} from "../../api/api-actions";
 
-export function AddReviewForm(): JSX.Element {
-  const [rating, setRating] = useState({
+
+export function AddReviewForm({filmId}: {filmId: number}): JSX.Element {
+  const [formData, setFormData] = useState({
     ratingStars: 8,
     reviewText: '',
   });
-  return ( <form action="#" className="add-review__form">
+  const dispatch = useAppDispatch();
+
+  const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    dispatch(postReview({filmId: filmId, comment: formData.reviewText, rating: formData.ratingStars}));
+  };
+  return ( <form  className="add-review__form" onSubmit={onSubmit}>
     <div className="rating">
       <div className="rating__stars">
 
         {[...Array(10)].map((_, index) => (
           <>
             <input className="rating__input" id={`star-${10 - index}`} type="radio" name="rating" value={10 - index}
-                   checked={rating.ratingStars === (10 - index)} onChange={() => {setRating(
-              {...rating, ratingStars : (10 - index)});}}
+                   checked={formData.ratingStars === (10 - index)} onChange={() => {setFormData(
+              {...formData, ratingStars : (10 - index)});}}
             />
             <label className="rating__label" htmlFor={`star-${10 - index}`}>Rating {10 - index}</label>
           </>
@@ -28,7 +37,7 @@ export function AddReviewForm(): JSX.Element {
                       placeholder="Review text"
                       onChange={(evt) =>
             {
-              setRating({...rating, reviewText : evt.target.value});}}
+              setFormData({...formData, reviewText : evt.target.value});}}
             />
       <div className="add-review__submit">
         <button className="add-review__btn" type="submit">Post</button>

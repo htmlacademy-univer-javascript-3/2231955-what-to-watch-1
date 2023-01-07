@@ -1,24 +1,32 @@
-import {filterFilmsByGenre} from '../../services/films';
-import {FilmInfo} from "../../types/film-page";
 import FilmsList from "../../components/films-list/films-list";
 import {Link, useParams} from "react-router-dom";
 import {Tabs} from "../../components/tabs/tabs";
 import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
-import {useAppSelector} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useEffect} from "react";
+import {getFilm, getReviews, getSimilarFilms} from "../../api/api-actions";
+import {AuthStatus} from "../../types/auth";
 
 export type FilmPageProps = {
 
 }
 export function Film(props: FilmPageProps): JSX.Element {
   const params = useParams();
-  const id = Number(params.id)
-  const {films} = useAppSelector((state) => state);
+  const id = params.id
+  const {film, similarFilms, authStatus} = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getFilm(id));
+    dispatch(getSimilarFilms(id));
+    dispatch(getReviews(id));
+  }, [dispatch, id]);
 
 
-  const film = films.filter((f) =>f.id == id)[0]
   return (
     <>
+      {film &&
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
@@ -56,7 +64,7 @@ export function Film(props: FilmPageProps): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
+                {authStatus == AuthStatus.Authorized && <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>}
               </div>
             </div>
           </div>
@@ -75,18 +83,20 @@ export function Film(props: FilmPageProps): JSX.Element {
           </div>
         </div>
       </section>
+      }
 
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList films={filterFilmsByGenre(films, film.genre)}/>
+          <FilmsList films={similarFilms}/>
 
         </section>
 
         <Footer/>
 
       </div>
+
     </>
   );
 }
