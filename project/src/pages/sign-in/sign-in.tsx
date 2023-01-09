@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {AuthCredentionals, AuthStatus} from "../../types/auth";
 import {Navigate} from "react-router-dom";
 import {Header} from "../../components/header/header";
+import {Footer} from "../../components/footer/footer";
 
 export function SignIn(): JSX.Element{
 
@@ -23,15 +24,11 @@ export function SignIn(): JSX.Element{
       <Navigate to={'/'}/> :
       <div className="user-page">
         <Header/>
-
         <div className="sign-in user-page__content">
-          <form action="#"
-                className="sign-in__form"
+          <form className="sign-in__form"
                 onSubmit={(evt) =>
                 {
                   evt.preventDefault();
-                  console.log(emailRef.current)
-
                   if (emailRef.current !== null && passwordRef.current !== null)
                     onSubmit({
                       email: emailRef.current.value,
@@ -62,19 +59,7 @@ export function SignIn(): JSX.Element{
           </form>
         </div>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="/markup/main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
   );
 }

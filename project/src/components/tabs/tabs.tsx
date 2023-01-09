@@ -1,7 +1,7 @@
 import {FilmInfo} from "../../types/film-page";
 import FilmCard from "../film-card/film-card";
-import {useState} from "react";
-import {OverviewFilm} from "./overview";
+import {useMemo, useState} from "react";
+import OverviewFilm from "./overview";
 import {ReviewsFilm} from "./reviews";
 import {DetailsFilm} from "./details";
 
@@ -32,6 +32,9 @@ export function Tabs(props: TabsProps): JSX.Element {
 
     }
   }
+
+  const tab = useMemo(() => getCurrentTabContent(), [currentTab]);
+
   return (
     <div className="film-card__desc">
       <nav className="film-nav film-card__nav">
@@ -42,7 +45,7 @@ export function Tabs(props: TabsProps): JSX.Element {
             </li>))}
         </ul>
       </nav>
-      {getCurrentTabContent()}
+      {tab}
     </div>
   )
 }

@@ -16,14 +16,11 @@ function GenresList(props: GenresListProps): JSX.Element{
     <ul className="catalog__genres-list">
       {
         props.genres.map((genre) =>
-          (<li className={`catalog__genres-item ${genre === props.currentActive ? 'catalog__genres-item--active' : ''}`}>
-            <button onClick={
-              (evt) =>
-              {
-                evt.preventDefault();
-                dispatch(changeGenre(genre));
-              }
-            } className="catalog__genres-link">{genre}</button>
+          (<li key={genre}
+               className={`catalog__genres-item ${genre === props.currentActive ? 'catalog__genres-item--active' : ''}`}>
+            <button onClick={() => dispatch(changeGenre(genre))}
+                    style={{background:'transparent', border:'none'}}
+                    className="catalog__genres-link">{genre}</button>
            </li>))
       }
     </ul>);
