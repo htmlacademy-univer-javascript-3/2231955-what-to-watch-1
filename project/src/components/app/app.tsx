@@ -8,16 +8,17 @@ import {MediaPlayer} from '../../pages/player/media-player';
 import Page404 from '../../pages/404/404';
 import PrivateRoute from '../private-routes/private-routes';
 import {Urls} from '../../types/urls';
-import {MainPage} from '../../types/main';
 import {MediaFileStates} from '../../types/media-player-state';
 import {useAppSelector} from "../../hooks";
 import {Spinner} from "../spinner/spinner";
 import React from "react";
 import HistoryRouter from "../history-route/history-route";
 import browserHistory from "../../browser-history";
+import {getIsLoading} from "../../store/main-data/selectors";
 
-function App(props: MainPage): JSX.Element {
-  const isFilmsLoaded = useAppSelector((state) => state.isFilmsLoaded);
+function App(): JSX.Element {
+  const isFilmsLoaded = useAppSelector(getIsLoading);
+  console.log(isFilmsLoaded)
 
   return isFilmsLoaded ? (
     <HistoryRouter history={browserHistory}>

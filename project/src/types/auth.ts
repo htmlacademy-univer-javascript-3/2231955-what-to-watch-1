@@ -16,6 +16,13 @@ export enum AuthStatus {
   Unauthorized = 'unauthorized',
   Unknown = 'Unknown'
 }
+export enum LogInError {
+  NoError,
+  NotValidEmail,
+  NotValidPassword,
+  NotValidEmailAndPasswordCombination
+}
+
 
 
 

@@ -1,6 +1,5 @@
-import {changeGenre, getFilmsByGenre, resetCountFilms} from "../../store/action";
 import {useAppDispatch} from "../../hooks";
-import {Dispatch, SetStateAction, useState} from "react";
+import {changeGenre} from "../../store/main-data/main-data";
 
 export type GenresListProps = {
   genres: string[];

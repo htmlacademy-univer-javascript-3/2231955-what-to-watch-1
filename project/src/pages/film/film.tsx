@@ -4,22 +4,29 @@ import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import React, {useEffect} from "react";
-import {getFilm, getReviews, getSimilarFilms} from "../../api/api-actions";
 import {FilmPoster} from "../../components/film-card/film-poster";
 import {Tabs} from "../../components/tabs/tabs";
 import {FilmCardBg} from "../../components/film-card/film-card-bg";
 import FilmCardDescription from "../../components/film-card/film-card-description";
+import {getFilm, getSimilarFilms} from "../../store/film-data/selectors";
+import {getAuthStatus} from "../../store/auth-process/selectors";
+import {fetchFilm, fetchSimilarFilms, getReviews} from "../../api/api-actions";
 
 export function Film(): JSX.Element {
   const params = useParams();
   const id = params.id
-  const {film, similarFilms, authStatus} = useAppSelector((state) => state);
+  const film = useAppSelector(getFilm);
+  const similarFilms = useAppSelector(getSimilarFilms);
+  const authStatus = useAppSelector(getAuthStatus);
   const dispatch = useAppDispatch();
 
+
   useEffect(() => {
-    dispatch(getFilm(id));
-    dispatch(getSimilarFilms(id));
-    dispatch(getReviews(id));
+    if (id !== undefined) {
+      dispatch(fetchFilm(id));
+      dispatch(fetchSimilarFilms(id));
+      dispatch(getReviews(id));
+    }
   }, [dispatch, id]);
 
 

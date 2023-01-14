@@ -1,8 +1,6 @@
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import { SetStateAction, Dispatch } from 'react';
 
-import {useEffect} from "react";
-import {showMoreFilms} from "../../store/action";
+import {showMore} from "../../store/main-data/main-data";
 
 type ShowMoreProps = {
   isAllLoaded: boolean;
@@ -18,7 +16,7 @@ export function ShowMore({isAllLoaded}: ShowMoreProps): JSX.Element {
                 type="button"
                 onClick={ (evt) => {
                   evt.preventDefault();
-                  dispatch(showMoreFilms());
+                  dispatch(showMore());
                 }}>
           Show more
         </button>

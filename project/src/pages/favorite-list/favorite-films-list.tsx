@@ -3,10 +3,11 @@ import {FilmInfo} from "../../types/film-page";
 import {useAppSelector} from "../../hooks";
 import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
+import {getFilms} from "../../store/main-data/selectors";
 export type FavoriteFilmsListProps = {
 }
 export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
-  const {films} = useAppSelector((state) => state);
+  const films = useAppSelector(getFilms);
 
   return (
     <div className="user-page">

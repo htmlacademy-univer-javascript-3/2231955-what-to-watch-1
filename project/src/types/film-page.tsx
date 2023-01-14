@@ -1,18 +1,3 @@
-import {Genre} from "./genre";
-
-export type ImageInfo = {
-  imageSrc: string
-  imageAlt: string
-}
-export type Rating = {
-  rate : string,
-  count: string,
-}
-
-export type VideoInfo = {
-  videoSrc : string,
-  start: string,
-}
 export type FilmInfo = {
   id: number;
   name: string;

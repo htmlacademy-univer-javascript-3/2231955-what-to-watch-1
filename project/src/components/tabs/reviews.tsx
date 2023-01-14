@@ -1,8 +1,9 @@
 import {FilmInfo} from "../../types/film-page";
 import {useAppDispatch, useAppSelector} from "../../hooks";
+import {getReviews} from "../../store/film-data/selectors";
 
 export function ReviewsFilm({film}: {film: FilmInfo}): JSX.Element {
-  const {reviews} = useAppSelector((state) => state);
+  const reviews = useAppSelector(getReviews);
 
   return (
     <div className="film-card__reviews film-card__row">

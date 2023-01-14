@@ -2,12 +2,10 @@ import {MediaFileStates, MediaPlayerProps} from '../../types/media-player-state'
 import {Link, Navigate, useParams} from "react-router-dom";
 import {Urls} from "../../types/urls";
 import {useAppSelector} from "../../hooks";
+import {getFilm} from "../../store/film-data/selectors";
 
 export function MediaPlayer(props: MediaPlayerProps): JSX.Element {
-  const id = Number(useParams().id)
-  const {films} = useAppSelector((state) => state);
-
-  const filmToShow = films.find((film) => id)
+  const filmToShow = useAppSelector(getFilm)
 
   return filmToShow ? (
     <div className="player">

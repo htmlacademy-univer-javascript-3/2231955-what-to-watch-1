@@ -5,12 +5,13 @@ import {AuthCredentionals, AuthStatus} from "../../types/auth";
 import {Navigate} from "react-router-dom";
 import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
+import {getAuthStatus} from "../../store/auth-process/selectors";
 
 export function SignIn(): JSX.Element{
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-  const {authStatus} = useAppSelector((state) => state);
+  const authStatus = useAppSelector(getAuthStatus);
 
   const dispatch = useAppDispatch();
 
