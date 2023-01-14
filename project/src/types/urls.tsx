@@ -4,6 +4,6 @@ export enum Urls {
   MyList = '/favorite',
   Film = 'films/:id',
   AddReview = 'films/:id/review',
-  MediaPlayer = 'player/:id',
+  MediaPlayer = '/player/:id',
   NotFound = '*'
 }

@@ -1,5 +1,5 @@
-import {NameSpace, State} from "../../types/state";
-import {AuthStatus, LogInError, UserInfo} from "../../types/auth";
+import {NameSpace, State} from '../../types/state';
+import {AuthStatus, UserInfo} from '../../types/auth';
 
 export const getAuthStatus = (state: State): AuthStatus => state[NameSpace.Auth].authStatus;
 

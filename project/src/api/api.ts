@@ -1,8 +1,8 @@
 import axios, {AxiosRequestConfig} from 'axios';
-import {getToken} from "../services/localstorage";
+import {getToken} from '../services/localstorage';
 
 
-const baseURL = 'https://10.react.pages.academy/wtw'
+const baseURL = 'https://10.react.pages.academy/wtw';
 export const createAPI = () => {
   const api = axios.create({
     baseURL: baseURL,

@@ -1,11 +1,11 @@
-import {NameSpace, State} from "../../types/state";
-import {FilmInfo} from "../../types/film-page";
-import {Review} from "../../types/review";
+import {NameSpace, State} from '../../types/state';
+import {FilmInfo} from '../../types/film-page';
+import {Review} from '../../types/review';
 
-export const getFilm = (state: State): FilmInfo | null => state[NameSpace.FilmScreen].film;
+export const getFilm = (state: State): FilmInfo | null => state[NameSpace.Film].film;
 
-export const getSimilarFilms = (state: State): FilmInfo[] => state[NameSpace.FilmScreen].similarFilms;
+export const getSimilarFilms = (state: State): FilmInfo[] => state[NameSpace.Film].similarFilms;
 
-export const getReviews = (state: State): Review[] => state[NameSpace.FilmScreen].reviews;
+export const getReviews = (state: State): Review[] => state[NameSpace.Film].reviews;
 
-export const getPostReviewError = (state: State): string | null => state[NameSpace.FilmScreen].postReviewError;
+

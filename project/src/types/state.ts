@@ -1,7 +1,7 @@
 import {store} from '../store';
-import {AuthStatus, UserInfo} from "./auth";
-import {FilmInfo} from "./film-page";
-import {Review} from "./review";
+import {AuthStatus, UserInfo} from './auth';
+import {FilmInfo} from './film-page';
+import {Review} from './review';
 
 export type AuthProcess = {
   authStatus: AuthStatus
@@ -28,10 +28,19 @@ export type FilmData = {
 
 export enum NameSpace {
   Auth = 'USER',
-  MainScreen = 'MAIN',
-  FilmScreen = 'FILM',
-  App ='APP'
+  Main = 'MAIN',
+  Film = 'FILM',
+  Favorite ='Favorite'
 }
+export type FavoriteData = {
+  favorite: FilmInfo[];
+  favoriteCount: number;
+  favoriteFilm: {
+    id: number;
+    status: boolean;
+  } | null;
+}
+
 export type State = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;

@@ -1,14 +1,14 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {AppDispatch, State} from "../types/state";
-import {AxiosInstance} from "axios";
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {AppDispatch, State} from '../types/state';
+import {AxiosInstance} from 'axios';
 import {
- redirect,
-} from "../store/action";
-import {AuthCredentionals, AuthStatus, UserInfo} from "../types/auth";
-import {removeToken, setToken} from "../services/localstorage";
-import {FilmInfo} from "../types/film-page";
-import {Review} from "../types/review";
-import {setGenres} from "../store/main-data/main-data";
+  redirect,
+} from '../store/action';
+import {AuthCredentionals, UserInfo} from '../types/auth';
+import {removeToken, setToken} from '../services/localstorage';
+import {FilmInfo} from '../types/film-page';
+import {Review} from '../types/review';
+import {setGenres} from '../store/main-data/main-data';
 
 export const fetchFilms = createAsyncThunk<FilmInfo[], undefined, {
   dispatch: AppDispatch;
@@ -18,8 +18,7 @@ export const fetchFilms = createAsyncThunk<FilmInfo[], undefined, {
   'fetchFilms',
   async (_arg, {dispatch, extra: api}) => {
     const {data} = await api.get<FilmInfo[]>('/films');
-    dispatch(setGenres(data))
-    console.log("asdasdasdasdas")
+    dispatch(setGenres(data));
     return data;
 
   },
@@ -43,9 +42,9 @@ export const getAuthStatus = createAsyncThunk<UserInfo, undefined, {
 }>(
   'user/checkAuthStatus',
   async (_arg, {dispatch, extra: api}) => {
-      const {data} = await api.get<UserInfo>('/login');
-      setToken(data.token);
-      return data
+    const {data} = await api.get<UserInfo>('/login');
+    setToken(data.token);
+    return data;
   },
 );
 
@@ -56,9 +55,9 @@ export const loginAction = createAsyncThunk<UserInfo, AuthCredentionals, {
 }>(
   'user/login',
   async ({email, password}, {dispatch, extra: api}) => {
-      const {data} = await api.post<UserInfo>('/login', {email, password});
-      setToken(data.token);
-      return data;
+    const {data} = await api.post<UserInfo>('/login', {email, password});
+    setToken(data.token);
+    return data;
 
 
   },
@@ -107,8 +106,8 @@ export const getReviews = createAsyncThunk<Review[], string, {
 }>(
   'film/getReviews',
   async (filmId, {extra: api}) => {
-      const {data} = await api.get<Review[]>(`/comments/${filmId}`);
-      return data;
+    const {data} = await api.get<Review[]>(`/comments/${filmId}`);
+    return data;
   },
 );
 
@@ -120,8 +119,33 @@ export const postReview = createAsyncThunk<Review[], {filmId: number; comment: s
   'film/postReview',
   async ({filmId, comment, rating}, {dispatch, extra: api}) => {
 
-      const {data} = await api.post<Review[]>(`/comments/${filmId}`, {comment, rating});
-      dispatch(redirect(`/films/${filmId}`));
-      return data
+    const {data} = await api.post<Review[]>(`/comments/${filmId}`, {comment, rating});
+    dispatch(redirect(`/films/${filmId}`));
+    return data;
+  }
+);
+
+export const fetchFavouriteFilms = createAsyncThunk<FilmInfo[], undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/favorite',
+  async (_args, {extra: api}) => {
+
+    const {data} = await api.get<FilmInfo[]>('/favorite');
+    return data;
+  }
+);
+
+export const changeFilmStatus = createAsyncThunk<FilmInfo, {filmId: number; status: number}, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'film/changeStatus',
+  async ({filmId, status}, {extra: api}) => {
+    const {data} = await api.post<FilmInfo>(`/favorite/${filmId}/${status}`, {filmId, status});
+    return data;
   }
 );
