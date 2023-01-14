@@ -1,7 +1,7 @@
-import {FilmInfo} from "../../types/film-page";
-import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
-import VideoPlayer from "../video-player";
+import {FilmInfo} from '../../types/film-page';
+import {Link} from 'react-router-dom';
+import {useState} from 'react';
+import VideoPlayer from '../video-player';
 export type SmallFilmCardProps = {
   film: FilmInfo;
 }
@@ -24,8 +24,8 @@ function FilmCard(props: SmallFilmCardProps):JSX.Element {
       <div className="small-film-card__image">
         {
           isPlayerOn ?
-        <VideoPlayer posterSrc={props.film.posterImage} videoSrc={props.film.videoLink}/>:
-        <img src={props.film.posterImage} alt={props.film.posterImage} width="280" height="175"/>
+            <VideoPlayer posterSrc={props.film.posterImage} videoSrc={props.film.videoLink}/> :
+            <img src={props.film.posterImage} alt={props.film.posterImage} width="280" height="175"/>
         }
       </div>
       <h3 className="small-film-card__title">

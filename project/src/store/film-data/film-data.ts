@@ -1,9 +1,9 @@
 import {FilmData, NameSpace} from '../../types/state';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {fetchFilm, getReviews, fetchSimilarFilms, postReview} from "../../api/api-actions";
+import {fetchFilm, getReviews, fetchSimilarFilms, postReview} from '../../api/api-actions';
 import {useAppDispatch} from '../../hooks';
-import {Urls} from "../../types/urls";
-import {redirect} from "../action";
+import {Urls} from '../../types/urls';
+import {redirect} from '../action';
 
 const initialState: FilmData = {
   film: null,
@@ -13,7 +13,7 @@ const initialState: FilmData = {
 };
 
 export const filmData = createSlice({
-  name: NameSpace.FilmScreen,
+  name: NameSpace.Film,
   initialState,
   reducers: {
     setPostReviewError: (state, action: PayloadAction<string | null>) => {
@@ -25,9 +25,9 @@ export const filmData = createSlice({
       .addCase(fetchFilm.fulfilled, (state, action) => {
         state.film = action.payload;
       })
-      .addCase(fetchFilm.pending, (state) => {
-        state.film = null;
-      })
+      // .addCase(fetchFilm.pending, (state) => {
+      //   state.film = null;
+      // })
       .addCase(fetchFilm.rejected, () => {
         const dispatch = useAppDispatch();
         dispatch(redirect(Urls.NotFound));
@@ -56,4 +56,4 @@ export const filmData = createSlice({
   },
 });
 
-export const {setPostReviewError} = filmData.actions;
+

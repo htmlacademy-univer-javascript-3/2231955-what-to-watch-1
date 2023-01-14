@@ -1,16 +1,16 @@
 
 export type Token = string;
-const token_key = 'auth-jwt-token';
+const tokenKey = 'auth-jwt-token';
 
 export const getToken = (): Token => {
-  const token = localStorage.getItem(token_key);
-  return token ? token: '';
+  const token = localStorage.getItem(tokenKey);
+  return token ? token : '';
 };
 
 export const setToken = (token: Token): void => {
-  localStorage.setItem(token_key, token);
+  localStorage.setItem(tokenKey, token);
 };
 
 export const removeToken = (): void => {
-  localStorage.removeItem(token_key);
+  localStorage.removeItem(tokenKey);
 };

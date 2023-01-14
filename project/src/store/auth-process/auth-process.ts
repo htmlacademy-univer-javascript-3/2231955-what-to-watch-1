@@ -1,7 +1,7 @@
-import {AuthStatus} from "../../types/auth";
-import {AuthProcess, NameSpace} from "../../types/state";
-import {createSlice} from "@reduxjs/toolkit";
-import {getAuthStatus, loginAction, logout} from "../../api/api-actions";
+import {AuthStatus} from '../../types/auth';
+import {AuthProcess, NameSpace} from '../../types/state';
+import {createSlice} from '@reduxjs/toolkit';
+import {getAuthStatus, loginAction, logout} from '../../api/api-actions';
 
 const initialState: AuthProcess = {
   authStatus: AuthStatus.Unknown,

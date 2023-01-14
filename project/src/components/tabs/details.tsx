@@ -1,4 +1,4 @@
-import {FilmInfo} from "../../types/film-page";
+import {FilmInfo} from '../../types/film-page';
 
 export function DetailsFilm({film}: {film: FilmInfo}): JSX.Element {
   return (

@@ -1,9 +1,8 @@
-import {FilmInfo} from "../../types/film-page";
-import FilmCard from "../film-card/film-card";
-import {useMemo, useState} from "react";
-import OverviewFilm from "./overview";
-import {ReviewsFilm} from "./reviews";
-import {DetailsFilm} from "./details";
+import {FilmInfo} from '../../types/film-page';
+import {useMemo, useState} from 'react';
+import OverviewFilm from './overview';
+import {ReviewsFilm} from './reviews';
+import {DetailsFilm} from './details';
 
 export type TabsProps = {
   film: FilmInfo
@@ -17,10 +16,11 @@ export enum Tab {
 
 export function Tabs(props: TabsProps): JSX.Element {
 
-  const tabs = [Tab.Overview, Tab.Details, Tab.Reviews]
+  const tabs = [Tab.Overview, Tab.Details, Tab.Reviews];
 
-  const [currentTab, changeTab] = useState(tabs[0])
-  const getCurrentTabContent = () =>
+  const [currentTab, changeTab] = useState(tabs[0]);
+
+  const tab = useMemo(() =>
   {
     switch (currentTab){
       case Tab.Details:
@@ -31,22 +31,20 @@ export function Tabs(props: TabsProps): JSX.Element {
         return <ReviewsFilm film={props.film}/>;
 
     }
-  }
-
-  const tab = useMemo(() => getCurrentTabContent(), [currentTab]);
+  }, [currentTab, props.film]);
 
   return (
     <div className="film-card__desc">
       <nav className="film-nav film-card__nav">
         <ul className="film-nav__list">
-          {tabs.map((tab) => (
-            <li className={`film-nav__item ${currentTab === tab? `film-nav__item--active`: ''}`} >
-              <button className="film-nav__link" style={{background:'transparent', border:'none'}} onClick={() => changeTab(tab)}>{tab}</button>
+          {tabs.map((t) => (
+            <li key={t} className={`film-nav__item ${currentTab === t ? 'film-nav__item--active' : ''}`} >
+              <button className="film-nav__link" style={{background:'transparent', border:'none'}} onClick={() => changeTab(t)}>{t}</button>
             </li>))}
         </ul>
       </nav>
       {tab}
     </div>
-  )
+  );
 }
 
