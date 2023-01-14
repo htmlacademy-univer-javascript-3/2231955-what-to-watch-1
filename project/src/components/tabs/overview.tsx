@@ -1,12 +1,28 @@
 import {FilmInfo} from "../../types/film-page";
+import React, {useMemo} from "react";
 
-export function OverviewFilm({film}: {film: FilmInfo}): JSX.Element {
+function OverviewFilm({film}: {film: FilmInfo}): JSX.Element {
+  const getRatingLevel = (rating: number) => {
+    if (0 <= rating && rating < 3){
+      return 'Bad';
+    } else if (3 <= rating && rating < 5){
+      return 'Normal';
+    } else if (5 <= rating && rating < 8){
+      return 'Good';
+    } else if (8 <= rating && rating < 10){
+      return 'Very good';
+    } else {
+      return 'Awecome';
+    }
+  };
+
+  const rating_level = useMemo(() => getRatingLevel(film.rating), [film.rating]);
   return (
     <>
       <div className="film-rating">
         <div className="film-rating__score">{film.rating}</div>
         <p className="film-rating__meta">
-          <span className="film-rating__level">Very good</span>
+          <span className="film-rating__level">{rating_level}</span>
           <span className="film-rating__count">{film.scoresCount} ratings</span>
         </p>
       </div>
@@ -22,3 +38,4 @@ export function OverviewFilm({film}: {film: FilmInfo}): JSX.Element {
     </>
   )
 }
+export default React.memo(OverviewFilm);

@@ -1,9 +1,8 @@
 import {FilmInfo} from "../../types/film-page";
 import FilmCard from "../film-card/film-card";
-import GenresList from "../genres-list/genres-list";
-import {ShowMore} from "../show-more/show-more";
-import {useState} from "react";
+import {useMemo} from "react";
 import {useAppSelector} from "../../hooks";
+import {getCount} from "../../store/main-data/selectors";
 
 
 export type FilmsListProps = {
@@ -11,16 +10,21 @@ export type FilmsListProps = {
 }
 
 function FilmsList(props: FilmsListProps): JSX.Element {
-  const {currentFilms, count} = useAppSelector((state) => state);
+  const count = useAppSelector(getCount);
 
+  const getFilmCards = (count: number, films: FilmInfo[]) =>{
+    const filmCards = films.map((film) => (
+      <FilmCard key={film.id} film={film}/>))
+    return count ? filmCards.slice(0, count): filmCards
+  }
 
-  const filmCards = props.films.map((film) => (
-    <FilmCard key={film.id} film={film}/>))
+  const filmsList = useMemo(() => getFilmCards(count, props.films), [props.films, count]);
+
   return (
     <>
     <div className="catalog__films-list">
       {
-        count ? filmCards.slice(0, count): filmCards
+        filmsList
       }
     </div>
     </>

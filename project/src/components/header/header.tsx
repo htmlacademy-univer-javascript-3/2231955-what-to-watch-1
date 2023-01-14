@@ -1,12 +1,14 @@
 import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {Urls} from "../../types/urls";
-import {setAuthStatus} from "../../store/action";
 import {AuthStatus} from "../../types/auth";
 import {logout} from "../../api/api-actions";
+import {getAuthStatus, getUser} from "../../store/auth-process/selectors";
 
 export function Header(): JSX.Element {
-  const {authStatus, user} = useAppSelector((state) => state);
+  const authStatus = useAppSelector(getAuthStatus);
+  const user = useAppSelector(getUser);
+
   const dispatch = useAppDispatch();
   return(
   <header className="page-header film-card__head">

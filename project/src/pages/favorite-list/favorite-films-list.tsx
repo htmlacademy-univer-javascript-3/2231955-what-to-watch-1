@@ -2,10 +2,12 @@ import FilmsList from "../../components/films-list/films-list";
 import {FilmInfo} from "../../types/film-page";
 import {useAppSelector} from "../../hooks";
 import {Header} from "../../components/header/header";
+import {Footer} from "../../components/footer/footer";
+import {getFilms} from "../../store/main-data/selectors";
 export type FavoriteFilmsListProps = {
 }
 export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
-  const {films} = useAppSelector((state) => state);
+  const films = useAppSelector(getFilms);
 
   return (
     <div className="user-page">
@@ -20,19 +22,7 @@ export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
         </div>
       </section>
 
-      <footer className="page-footer">
-        <div className="logo">
-          <a href="/markup/main.html" className="logo__link logo__link--light">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </a>
-        </div>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

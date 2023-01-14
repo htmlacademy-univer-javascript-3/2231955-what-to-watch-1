@@ -1,16 +1,14 @@
-import {FilmInfo} from "../../types/film-page";
 import {Link, Navigate, useParams} from "react-router-dom";
 import {Urls} from "../../types/urls";
 import {AddReviewForm} from "../../components/add-review-form/add-review-form";
 import {useAppSelector} from "../../hooks";
 import {Header} from "../../components/header/header";
+import {getFilm} from "../../store/film-data/selectors";
 
 export type AddReviewProps = {
 }
 export function AddReview(props: AddReviewProps): JSX.Element {
-  const {films} = useAppSelector((state) => state);
-  const id = Number(useParams().id)
-  const {film} = useAppSelector((state) => state);
+  const film = useAppSelector(getFilm)
 
   return (film ?
     <section className="film-card film-card--full">
