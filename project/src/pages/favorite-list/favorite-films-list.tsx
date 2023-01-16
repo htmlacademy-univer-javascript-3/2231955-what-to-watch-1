@@ -3,11 +3,12 @@ import {FilmInfo} from "../../types/film-page";
 import {useAppSelector} from "../../hooks";
 import {Header} from "../../components/header/header";
 import {Footer} from "../../components/footer/footer";
-import {getFilms} from "../../store/main-data/selectors";
+import {getCount, getFilms} from "../../store/main-data/selectors";
 export type FavoriteFilmsListProps = {
 }
 export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
   const films = useAppSelector(getFilms);
+  const count = useAppSelector(getCount);
 
   return (
     <div className="user-page">
@@ -17,7 +18,7 @@ export function FavoriteFilmsList(props: FavoriteFilmsListProps): JSX.Element {
 
         <div className="catalog__films-list">
           {
-            <FilmsList films={films}/>
+            <FilmsList films={films} count={count}/>
           }
         </div>
       </section>

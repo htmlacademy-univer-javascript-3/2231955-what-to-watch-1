@@ -10,6 +10,7 @@ const initialState: FilmData = {
   similarFilms: [],
   reviews: [],
   postReviewError: null,
+  isLoaded: false
 };
 
 export const filmData = createSlice({
@@ -24,9 +25,11 @@ export const filmData = createSlice({
     builder
       .addCase(fetchFilm.fulfilled, (state, action) => {
         state.film = action.payload;
+        state.isLoaded = true
+
       })
       .addCase(fetchFilm.pending, (state) => {
-        state.film = null;
+        state.isLoaded = false
       })
       .addCase(fetchFilm.rejected, () => {
         const dispatch = useAppDispatch();

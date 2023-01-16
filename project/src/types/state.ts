@@ -23,6 +23,7 @@ export type FilmData = {
   similarFilms: FilmInfo[];
   reviews: Review[];
   postReviewError: string | null;
+  isLoaded: boolean
 
 }
 

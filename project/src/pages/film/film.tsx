@@ -8,9 +8,11 @@ import {FilmPoster} from "../../components/film-card/film-poster";
 import {Tabs} from "../../components/tabs/tabs";
 import {FilmCardBg} from "../../components/film-card/film-card-bg";
 import FilmCardDescription from "../../components/film-card/film-card-description";
-import {getFilm, getSimilarFilms} from "../../store/film-data/selectors";
+import {getFilm, getLoadedStatus, getSimilarFilms} from "../../store/film-data/selectors";
 import {getAuthStatus} from "../../store/auth-process/selectors";
 import {fetchFilm, fetchSimilarFilms, getReviews} from "../../api/api-actions";
+import Page404 from "../404/404";
+import {Spinner} from "../../components/spinner/spinner";
 
 export function Film(): JSX.Element {
   const params = useParams();
@@ -19,6 +21,7 @@ export function Film(): JSX.Element {
   const similarFilms = useAppSelector(getSimilarFilms);
   const authStatus = useAppSelector(getAuthStatus);
   const dispatch = useAppDispatch();
+  const isLoaded = useAppSelector(getLoadedStatus)
 
 
   useEffect(() => {
@@ -28,7 +31,12 @@ export function Film(): JSX.Element {
       dispatch(getReviews(id));
     }
   }, [dispatch, id]);
-
+  if (!isLoaded){
+    return <Spinner/>
+  }
+  if (!film && isLoaded){
+    return <Page404/>
+  }
 
   return (
     <>
@@ -55,7 +63,7 @@ export function Film(): JSX.Element {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <FilmsList films={similarFilms}/>
+          <FilmsList films={similarFilms} count={4}/>
         </section>
         <Footer/>
       </div>
