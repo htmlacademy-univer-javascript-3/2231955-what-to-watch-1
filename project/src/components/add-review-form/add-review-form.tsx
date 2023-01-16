@@ -9,6 +9,7 @@ export function AddReviewForm({filmId}: {filmId: number}): JSX.Element {
     reviewText: '',
   });
   const dispatch = useAppDispatch();
+  const generateKey = (pre: string) => `${ pre }_${ new Date().getTime() }`;
 
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -20,7 +21,7 @@ export function AddReviewForm({filmId}: {filmId: number}): JSX.Element {
         <div className="rating__stars">
 
           {[...Array(10)].map((_, index) => (
-            <div key={`${index}-star`}>
+            <div key={generateKey('star')}>
               <input className="rating__input" id={`star-${10 - index}`} type="radio" name="rating" value={10 - index}
                 checked={formData.ratingStars === (10 - index)} onChange={() => {setFormData(
                   {...formData, ratingStars : (10 - index)});}}
