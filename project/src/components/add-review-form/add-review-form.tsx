@@ -5,7 +5,7 @@ import {postReview} from '../../api/api-actions';
 
 export function AddReviewForm({filmId}: {filmId: number}): JSX.Element {
   const [formData, setFormData] = useState({
-    ratingStars: 8,
+    ratingStars: -1,
     reviewText: '',
   });
   const dispatch = useAppDispatch();
@@ -36,12 +36,18 @@ export function AddReviewForm({filmId}: {filmId: number}): JSX.Element {
           name="review-text"
           id="review-text"
           placeholder="Review text"
+          minLength={50}
+          maxLength={400}
           onChange={(evt) =>
           {
             setFormData({...formData, reviewText : evt.target.value});}}
         />
         <div className="add-review__submit">
-          <button className="add-review__btn" type="submit">Post</button>
+          {
+            formData.ratingStars !== -1 && formData.reviewText.length >= 50 ?
+              <button className="add-review__btn" type="submit">Post</button> :
+              <button className="add-review__btn" type="submit" disabled>Post</button>
+          }
         </div>
 
       </div>

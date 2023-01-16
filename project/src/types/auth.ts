@@ -17,7 +17,10 @@ export enum AuthStatus {
   Unknown = 'Unknown'
 }
 export enum LogInError {
-
+  NoError,
+  NotValidEmail,
+  NotValidPassword,
+  NotValidEmailAndPassword
 }
 
 

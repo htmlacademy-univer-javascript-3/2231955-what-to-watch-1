@@ -45,7 +45,7 @@ function Main(): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         {<GenresList currentActive={currentGenre} genres={genres}/>}
-        {<FilmsList films={currentFilms}/>}
+        {<FilmsList films={currentFilms} count={count}/>}
         {<ShowMore isAllLoaded={count !== currentFilms.length } />}
       </section>
       <Footer/>

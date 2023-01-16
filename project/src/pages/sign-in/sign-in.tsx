@@ -1,7 +1,7 @@
 import {loginAction} from '../../api/api-actions';
-import {useRef} from 'react';
+import {useRef, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {AuthCredentionals, AuthStatus} from '../../types/auth';
+import {AuthCredentionals, AuthStatus, LogInError} from '../../types/auth';
 import {Navigate} from 'react-router-dom';
 import {Header} from '../../components/header/header';
 import {Footer} from '../../components/footer/footer';
@@ -14,9 +14,49 @@ export function SignIn(): JSX.Element{
   const authStatus = useAppSelector(getAuthStatus);
 
   const dispatch = useAppDispatch();
+  const [loginError, setLoginError] = useState(LogInError.NoError);
 
   const onSubmit = (authData: AuthCredentionals) => {
-    dispatch(loginAction(authData));
+
+
+    if (authData.email === '' && authData.password === '') {
+      setLoginError(LogInError.NotValidEmailAndPassword);
+    }
+
+    else if (authData.password === '') {
+      setLoginError(LogInError.NotValidPassword);
+    }
+    else if (authData.email === '') {
+      setLoginError(LogInError.NotValidEmail);
+    }
+    else {
+      dispatch(loginAction(authData));
+    }
+  };
+  const renderErrorMessage = (logInError: LogInError) => {
+    switch (logInError) {
+      case LogInError.NotValidEmail:
+        return (
+          <div className="sign-in__message">
+            <p>email should not be empty</p>
+          </div>
+        );
+      case LogInError.NotValidPassword:
+        return (
+          <div className="sign-in__message">
+            <p>password should not be empty</p>
+          </div>
+        );
+      case LogInError.NotValidEmailAndPassword:
+        return (
+          <div className="sign-in__message">
+            <p>email should not be empty</p>
+            <p>password should not be empty</p>
+          </div>
+        );
+      default:
+        return null;
+    }
   };
 
 
@@ -30,13 +70,15 @@ export function SignIn(): JSX.Element{
             onSubmit={(evt) =>
             {
               evt.preventDefault();
-              if (emailRef.current !== null && passwordRef.current !== null)
-              {onSubmit({
-                email: emailRef.current.value,
-                password: passwordRef.current.value,
-              });}
+              if (emailRef.current && passwordRef.current) {
+                onSubmit({
+                  email: emailRef.current.value,
+                  password: passwordRef.current.value,
+                });
+              }
             }}
           >
+            {renderErrorMessage(loginError)}
             <div className="sign-in__fields">
               <div className="sign-in__field">
                 <input className="sign-in__input" type="email" placeholder="Email address" name="user-email"

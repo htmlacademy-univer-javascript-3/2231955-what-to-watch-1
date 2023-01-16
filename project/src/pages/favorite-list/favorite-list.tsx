@@ -6,7 +6,7 @@ import {getFavoriteList, getFavoriteListCount} from '../../store/favorite-data/s
 import {useEffect} from 'react';
 import {fetchFavouriteFilms} from '../../api/api-actions';
 
-export function FavoriteFilmsList(): JSX.Element {
+export function FavoriteList(): JSX.Element {
   const favoriteList = useAppSelector(getFavoriteList);
   const favoriteLisCount = useAppSelector(getFavoriteListCount);
 
@@ -23,7 +23,7 @@ export function FavoriteFilmsList(): JSX.Element {
       </Header>
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
-        <FilmsList films={favoriteList}/>
+        <FilmsList films={favoriteList} count={favoriteLisCount}/>
       </section>
 
       <Footer/>
