@@ -19,7 +19,7 @@ export function ReviewsFilm({film}: {film: FilmInfo}): JSX.Element {
                 </footer>
               </blockquote>
 
-              <div className="review__rating">{r.rating}</div>
+              <div className="review__rating">{`${r.rating}.0`}</div>
             </div>))}
       </div>
     </div>

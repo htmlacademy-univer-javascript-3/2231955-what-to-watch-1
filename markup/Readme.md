@@ -2,7 +2,7 @@
 
 * `index.html` - контейнер;
 * `main.html` - страница «Main» (Главная страница);
-* `my-list.html` — страница «FavoriteFilmsList» (Список фильмов «К просмотру»);
+* `my-list.html` — страница «FavoriteList» (Список фильмов «К просмотру»);
 * `sign-in.html` - страница «Sign In» (Авторизация):
    * `sign-in-message.html` - с выводом сообщения;
    * `sign-in-error.html` — с выводом ошибки;

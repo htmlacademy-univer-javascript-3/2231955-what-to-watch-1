@@ -1,7 +1,7 @@
 import Main from '../../pages/main/main';
 import {Route, Routes} from 'react-router-dom';
 import {SignIn} from '../../pages/sign-in/sign-in';
-import {FavoriteFilmsList} from '../../pages/favorite-list/favorite-films-list';
+import {FavoriteList} from '../../pages/favorite-list/favorite-list';
 import {Film} from '../../pages/film/film';
 import {AddReview} from '../../pages/add-review/add-review';
 import Page404 from '../../pages/404/404';
@@ -13,7 +13,7 @@ import React from 'react';
 import HistoryRouter from '../history-route/history-route';
 import browserHistory from '../../browser-history';
 import {getIsLoading} from '../../store/main-data/selectors';
-import {MediaPlayer} from '../../pages/player/media-player';
+import {MediaPlayer} from '../../pages/media-player/media-player';
 
 function App(): JSX.Element {
   const isFilmsLoaded = useAppSelector(getIsLoading);
@@ -30,7 +30,7 @@ function App(): JSX.Element {
         <Route path={Urls.MyList} element=
           {
             <PrivateRoute>
-              <FavoriteFilmsList/>
+              <FavoriteList/>
             </PrivateRoute>
           }
         />

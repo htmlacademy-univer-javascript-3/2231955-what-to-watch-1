@@ -1,7 +1,7 @@
 import {FilmInfo} from '../../types/film-page';
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
-import VideoPlayer from '../video-player';
+import VideoPlayer from '../video-player/video-player';
 export type SmallFilmCardProps = {
   film: FilmInfo;
 }

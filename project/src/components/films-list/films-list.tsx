@@ -1,8 +1,6 @@
 import {FilmInfo} from '../../types/film-page';
 import FilmCard from '../film-card/film-card';
 import {useMemo} from 'react';
-import {useAppSelector} from '../../hooks';
-import {getCount} from '../../store/main-data/selectors';
 
 
 export type FilmsListProps = {
@@ -11,7 +9,6 @@ export type FilmsListProps = {
 }
 
 function FilmsList(props: FilmsListProps): JSX.Element {
-  // const count = useAppSelector(getCount);
 
   const getFilmCards = (length: number, films: FilmInfo[]) =>{
     const filmCards = films.map((film) => (

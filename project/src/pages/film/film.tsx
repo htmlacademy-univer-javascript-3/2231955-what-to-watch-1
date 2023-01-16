@@ -11,8 +11,8 @@ import FilmCardDescription from '../../components/film-card/film-card-descriptio
 import {getFilm, getLoadedStatus, getSimilarFilms} from '../../store/film-data/selectors';
 import {getAuthStatus} from '../../store/auth-process/selectors';
 import {fetchFilm, fetchSimilarFilms, getReviews} from '../../api/api-actions';
-import Page404 from "../404/404";
-import {Spinner} from "../../components/spinner/spinner";
+import Page404 from '../404/404';
+import {Spinner} from '../../components/spinner/spinner';
 export function Film(): JSX.Element {
   const params = useParams();
   const id = params.id;
@@ -20,7 +20,7 @@ export function Film(): JSX.Element {
   const similarFilms = useAppSelector(getSimilarFilms);
   const authStatus = useAppSelector(getAuthStatus);
   const dispatch = useAppDispatch();
-  const isLoaded = useAppSelector(getLoadedStatus)
+  const isLoaded = useAppSelector(getLoadedStatus);
 
 
   useEffect(() => {
@@ -31,10 +31,10 @@ export function Film(): JSX.Element {
     }
   }, [dispatch, id]);
   if (!isLoaded){
-    return <Spinner/>
+    return <Spinner/>;
   }
-  if (!film && isLoaded){
-    return <Page404/>
+  if (film === null){
+    return <Page404/>;
   }
 
   return (

@@ -25,18 +25,14 @@ export const filmData = createSlice({
     builder
       .addCase(fetchFilm.fulfilled, (state, action) => {
         state.film = action.payload;
-        state.isLoaded = true
+        state.isLoaded = true;
 
       })
-      .addCase(fetchFilm.pending, (state) => {
-        state.isLoaded = false
-      })
-      // .addCase(fetchFilm.pending, (state) => {
-      //   state.film = null;
-      // })
-      .addCase(fetchFilm.rejected, () => {
-        const dispatch = useAppDispatch();
-        dispatch(redirect(Urls.NotFound));
+      .addCase(fetchFilm.rejected, (state) => {
+        console.log("asd")
+        state.film = null;
+        state.isLoaded = true;
+
       })
       .addCase(fetchSimilarFilms.fulfilled, (state, action) => {
         state.similarFilms = action.payload;
