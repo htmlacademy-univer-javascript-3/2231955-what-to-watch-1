@@ -1,9 +1,7 @@
 import {FilmData, NameSpace} from '../../types/state';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {fetchFilm, getReviews, fetchSimilarFilms, postReview} from '../../api/api-actions';
-import {useAppDispatch} from '../../hooks';
-import {Urls} from '../../types/urls';
-import {redirect} from '../action';
+
 
 const initialState: FilmData = {
   film: null,
@@ -29,7 +27,6 @@ export const filmData = createSlice({
 
       })
       .addCase(fetchFilm.rejected, (state) => {
-        console.log("asd")
         state.film = null;
         state.isLoaded = true;
 

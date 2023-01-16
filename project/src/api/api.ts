@@ -30,16 +30,16 @@ export const createAPI = () => {
       return config;
     },
   );
-  // api.interceptors.response.use(
-  //   (response) => response,
-  //   (error: AxiosError) => {
-  //     if (error.response && isNotAvailable(error.response)) {
-  //       toast.warn(error.response.data.error);
-  //     }
-  //
-  //     throw error;
-  //   }
-  // );
+  api.interceptors.response.use(
+    (response) => response,
+    (error: AxiosError) => {
+      if (error.response && isNotAvailable(error.response)) {
+        toast.warn(error.response.data.error);
+      }
+
+      throw error;
+    }
+  );
 
   return api;
 };
