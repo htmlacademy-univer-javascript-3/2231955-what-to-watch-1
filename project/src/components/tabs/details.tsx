@@ -11,7 +11,7 @@ export function DetailsFilm({film}: {film: FilmInfo}): JSX.Element {
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Starring</strong>
           <span className="film-card__details-value">
-            {film.starring.map((s) => <>{s}<br/></>)}
+            {film.starring.map((s) => <div key={`${s}-actor`}>{s}<br/></div>)}
           </span>
         </p>
       </div>
