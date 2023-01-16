@@ -1,11 +1,13 @@
 import {FilmInfo} from '../../types/film-page';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import VideoPlayer from '../video-player';
 export type SmallFilmCardProps = {
   film: FilmInfo;
 }
-function FilmCard(props: SmallFilmCardProps):JSX.Element {
+function FilmCard(props: SmallFilmCardProps):JSX.Element{
+  const navigate = useNavigate();
+
   const [isPlayerOn, setIsPlayerOn] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | undefined>(undefined);
 
@@ -19,7 +21,7 @@ function FilmCard(props: SmallFilmCardProps):JSX.Element {
   }
 
   return (
-    <article className="small-film-card catalog__films-card" onPointerEnter={handleMouseOver} onPointerLeave={handleMouseOut}>
+    <article className="small-film-card catalog__films-card" onClick={() => navigate(`/films/${props.film.id}`)} onPointerEnter={handleMouseOver} onPointerLeave={handleMouseOut}>
 
       <div className="small-film-card__image">
         {
